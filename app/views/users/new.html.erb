@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <p><%=pluralize(@user.errors.count, "error") %> prevented this post from saving.</p>
+
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+  <%end%>
+
+  <p>
+    <%=f.label :username %><br>
+    <%=f.text_field :username %>
+  </p>
+  <p>
+    <%=f.label :password %><br>
+    <%=f.password_field :password %>
+  </p>
+
+   <p>
+    <%=f.submit %>
+  </p>
+<% end %>
+
